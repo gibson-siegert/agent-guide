@@ -2,6 +2,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
     font-family: 'Inter', system-ui, sans-serif;
     color: #1c1525;
@@ -19,7 +21,7 @@ body {
 }
 .nav-inner { max-width: 960px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
 .nav-brand { font-family: 'Newsreader', Georgia, serif; font-size: 1.1rem; color: #7c3aed; font-weight: 500; }
-.nav-links { display: flex; gap: 1.5rem; }
+.nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 .nav-links a { color: #6b6479; text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.15s; }
 .nav-links a:hover { color: #7c3aed; }
 
@@ -79,7 +81,7 @@ body {
 }
 .setup-card h3 { font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; margin-bottom: 1rem; color: #a78bfa; }
 
-.code-block { margin-bottom: 1rem; }
+.code-block { margin-bottom: 1rem; position: relative; }
 .code-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: #8a829a; font-weight: 600; margin-bottom: 0.25rem; }
 .code-block code {
     display: block; background: #231d30; padding: 0.75rem 1rem;
@@ -113,9 +115,203 @@ body {
 /* Footer */
 .footer { text-align: center; padding: 2rem; color: #9590a0; font-size: 0.82rem; border-top: 1px solid #e8e5ef; }
 
+/* ============================================ */
+/* ANALOGY SECTION - Rich tabbed analogies      */
+/* ============================================ */
+.analogy-section-card {
+    background: white; border: 1px solid #e8e5ef; border-radius: 12px;
+    padding: 2rem; margin-bottom: 1.5rem;
+}
+.analogy-section-card h3 {
+    font-family: 'Newsreader', Georgia, serif; font-size: 1.3rem;
+    margin-bottom: 0.35rem; color: #1c1525;
+}
+.analogy-section-card .analogy-subtitle {
+    font-size: 0.88rem; color: #6b6479; margin-bottom: 1.25rem;
+}
+.analogy-mapping {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem;
+}
+.analogy-mapping-item {
+    display: flex; gap: 0.75rem; padding: 0.75rem 1rem;
+    background: #f8f7fc; border-radius: 8px; align-items: center;
+}
+.analogy-mapping-item .real-world {
+    font-weight: 600; color: #1c1525; font-size: 0.85rem; min-width: 110px; flex-shrink: 0;
+}
+.analogy-mapping-item .arrow { color: #7c3aed; font-weight: 600; flex-shrink: 0; }
+.analogy-mapping-item .gt-equiv { font-size: 0.85rem; color: #7c3aed; font-weight: 600; }
+.analogy-desc { font-size: 0.82rem; color: #6b6479; margin-top: 0.15rem; }
+
+/* ============================================ */
+/* QUICKSTART SECTION                           */
+/* ============================================ */
+.quickstart-card {
+    background: #1c1525; color: #ede9f5; border-radius: 16px;
+    padding: 2rem 2.5rem; margin-bottom: 1.5rem;
+}
+.quickstart-card h3 {
+    font-family: 'Newsreader', Georgia, serif; font-size: 1.2rem;
+    margin-bottom: 0.25rem; color: #a78bfa;
+}
+.quickstart-card .qs-desc {
+    font-size: 0.85rem; color: #8a829a; margin-bottom: 1rem;
+}
+.quickstart-card .code-block code {
+    background: #0d0a12; border: 1px solid #2d2540;
+}
+.copy-wrapper { position: relative; }
+.copy-btn {
+    position: absolute; top: 0.5rem; right: 0.5rem;
+    background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4);
+    color: #c4b5fd; border-radius: 6px; padding: 0.3rem 0.5rem;
+    font-size: 0.72rem; cursor: pointer; transition: all 0.15s;
+    font-family: 'Inter', system-ui, sans-serif; font-weight: 500;
+}
+.copy-btn:hover { background: rgba(124,58,237,0.45); color: #e0d4fc; }
+.copy-btn.copied { background: rgba(22,163,74,0.3); border-color: rgba(22,163,74,0.5); color: #86efac; }
+
+/* ============================================ */
+/* COMPARISON TABLE                             */
+/* ============================================ */
+.comparison-table {
+    width: 100%; border-collapse: collapse; margin-top: 1rem;
+    background: white; border-radius: 12px; overflow: hidden;
+    border: 1px solid #e8e5ef;
+}
+.comparison-table thead { background: #f8f7fc; }
+.comparison-table th {
+    text-align: left; padding: 0.75rem 1rem; font-size: 0.78rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.04em; color: #6b6479;
+    border-bottom: 2px solid #e8e5ef;
+}
+.comparison-table td {
+    padding: 0.65rem 1rem; font-size: 0.85rem; color: #4a4358;
+    border-bottom: 1px solid #f0edf5;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:hover { background: #faf9fe; }
+.comparison-table td:first-child { font-weight: 600; color: #1c1525; white-space: nowrap; }
+.comparison-table td:nth-child(2) { color: #6b6479; }
+.comparison-table td:nth-child(3) { color: #7c3aed; font-weight: 500; }
+.comparison-table .check { color: #16a34a; font-weight: 600; }
+.comparison-table .x-mark { color: #dc2626; }
+
+/* ============================================ */
+/* FLOW STEPS - How it actually works           */
+/* ============================================ */
+.flow-timeline { margin-top: 1.25rem; }
+.flow-step {
+    display: flex; gap: 1.25rem; padding: 1rem 0;
+    border-bottom: 1px solid #f0edf5;
+}
+.flow-step:last-child { border-bottom: none; }
+.flow-step-num {
+    flex-shrink: 0; width: 2.5rem; height: 2.5rem;
+    background: #7c3aed; color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Newsreader', Georgia, serif; font-size: 1.1rem; font-weight: 600;
+}
+.flow-step-content h4 {
+    font-size: 0.95rem; margin-bottom: 0.25rem; color: #1c1525;
+}
+.flow-step-content p {
+    font-size: 0.85rem; color: #6b6479; line-height: 1.6;
+}
+.flow-step-content code {
+    background: #f3f0ff; padding: 0.1rem 0.35rem; border-radius: 4px;
+    font-family: 'SF Mono', monospace; font-size: 0.8rem; color: #7c3aed;
+}
+
+/* ============================================ */
+/* USE CASE CARDS                               */
+/* ============================================ */
+.use-case-card {
+    background: white; border: 1px solid #e8e5ef; border-radius: 12px;
+    padding: 1.5rem 2rem; margin-bottom: 1rem;
+}
+.use-case-card .uc-scenario {
+    font-family: 'Newsreader', Georgia, serif; font-size: 1.1rem;
+    color: #1c1525; margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid #f0edf5;
+}
+.use-case-card .uc-scenario em {
+    font-style: italic; color: #7c3aed;
+}
+.uc-breakdown { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+.uc-step {
+    background: #f8f7fc; border-radius: 8px; padding: 0.75rem;
+}
+.uc-step-label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: #7c3aed; font-weight: 600; margin-bottom: 0.25rem;
+}
+.uc-step p { font-size: 0.82rem; color: #4a4358; }
+
+/* ============================================ */
+/* FAQ SECTION                                  */
+/* ============================================ */
+.faq-item {
+    background: white; border: 1px solid #e8e5ef; border-radius: 12px;
+    padding: 1.25rem 1.75rem; margin-bottom: 0.75rem;
+}
+.faq-item h4 {
+    font-family: 'Newsreader', Georgia, serif; font-size: 1.05rem;
+    color: #1c1525; margin-bottom: 0.35rem;
+}
+.faq-item p { font-size: 0.88rem; color: #4a4358; line-height: 1.6; }
+.faq-item code {
+    background: #f3f0ff; padding: 0.1rem 0.35rem; border-radius: 4px;
+    font-family: 'SF Mono', monospace; font-size: 0.8rem; color: #7c3aed;
+}
+
+/* ============================================ */
+/* BACK TO TOP BUTTON                           */
+/* ============================================ */
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 99;
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: #7c3aed; color: white; border: none;
+    font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, background 0.15s;
+    pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.back-to-top:hover { background: #6d28d9; }
+
+/* ============================================ */
+/* ANALOGY TAB SWITCHER                         */
+/* ============================================ */
+.analogy-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.analogy-tab {
+    padding: 0.5rem 1rem; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 500; cursor: pointer;
+    border: 1px solid #e8e5ef; background: white; color: #6b6479;
+    transition: all 0.15s;
+}
+.analogy-tab:hover { border-color: #7c3aed; color: #7c3aed; }
+.analogy-tab.active { background: #7c3aed; color: white; border-color: #7c3aed; }
+.analogy-panel { display: none; }
+.analogy-panel.active { display: block; }
+
+/* ============================================ */
+/* SECTION HIGHLIGHT (for the Gas Town star)    */
+/* ============================================ */
+.section-highlight {
+    background: linear-gradient(135deg, #f8f7fc 0%, #ede9f5 50%, #f8f7fc 100%);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .analogy-grid, .pillars-grid, .when-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 2rem; }
     .nav-links { display: none; }
+    .analogy-mapping { grid-template-columns: 1fr; }
+    .uc-breakdown { grid-template-columns: 1fr; }
+    .quickstart-card { padding: 1.5rem; }
+    .analogy-tabs { gap: 0.35rem; }
+    .analogy-tab { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
 }

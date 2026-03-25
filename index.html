@@ -116,9 +116,15 @@
             <a href="#claude-code">Claude Code</a>
             <a href="#deep-agents">Deep Agents</a>
             <a href="#gas-town">Gas Town</a>
+            <a href="#analogies">Analogies</a>
+            <a href="#quickstart">Quickstart</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#comparison">Solo vs Fleet</a>
+            <a href="#use-cases">Use Cases</a>
+            <a href="#faq">FAQ</a>
             <a href="#which-tool">Which Tool?</a>
             <a href="#whats-next">What's Next</a>
-            <a href="#backend-work">Backend Details</a>
+            <a href="#backend-work">Backend</a>
         </div>
     </div>
 </nav>
@@ -188,21 +194,21 @@
 
         <div class="analogy-grid">
             <div class="analogy-card">
-                <div class="analogy-icon">💬</div>
+                <div class="analogy-icon">&#x1F4AC;</div>
                 <h3>Claude Code</h3>
                 <p class="analogy-role">The Smart Employee</p>
                 <p>A brilliant engineer at your desk. You say what to do, they do it now. They read files, write code, search the web, and talk to your tools (Notion, Gmail, Slack). One task at a time; forgets when you close the window.</p>
                 <p class="analogy-tag">This is what you've been using today.</p>
             </div>
             <div class="analogy-card">
-                <div class="analogy-icon">🧠</div>
+                <div class="analogy-icon">&#x1F9E0;</div>
                 <h3>Deep Agents</h3>
                 <p class="analogy-role">The Research Team</p>
                 <p>A team of analysts who plan their own work. Give them a complex question and they break it into steps, search the internet, assign sub-tasks to other agents, and deliver a polished report. They remember past findings.</p>
                 <p class="analogy-tag">Installed at ~/Desktop/deep-agents/</p>
             </div>
             <div class="analogy-card">
-                <div class="analogy-icon">🏭</div>
+                <div class="analogy-icon">&#x1F3ED;</div>
                 <h3>Gas Town</h3>
                 <p class="analogy-role">The Entire Company</p>
                 <p>20&ndash;30 employees working simultaneously &mdash; a Mayor who coordinates, workers who code, a merge queue that combines their work, and monitors that watch everyone. Gas Town orchestrates many Claude Code instances at once.</p>
@@ -457,7 +463,7 @@ sequenceDiagram
 <!-- ============================================================ -->
 <!-- GAS TOWN -->
 <!-- ============================================================ -->
-<section id="gas-town" class="section">
+<section id="gas-town" class="section section-highlight">
     <div class="container">
         <h2>Gas Town &mdash; Your AI Company</h2>
         <p class="section-intro">Created by Steve Yegge (legendary engineer, ex-Google/Amazon). Gas Town is "Kubernetes for AI coding agents" &mdash; it manages a fleet of Claude Code instances. Named after Mad Max: Gas Town keeps everything fueled and running.</p>
@@ -670,6 +676,615 @@ sequenceDiagram
 </section>
 
 <!-- ============================================================ -->
+<!-- RICH ANALOGIES -->
+<!-- ============================================================ -->
+<section id="analogies" class="section section-alt">
+    <div class="container">
+        <h2>Understanding Gas Town &mdash; Three Ways to Think About It</h2>
+        <p class="section-intro">Gas Town can feel abstract at first. These three real-world analogies map every Gas Town concept to something you already know. Pick the one that clicks for you.</p>
+
+        <div class="analogy-tabs">
+            <button class="analogy-tab active" onclick="switchAnalogy('restaurant')">The Restaurant</button>
+            <button class="analogy-tab" onclick="switchAnalogy('construction')">The Construction Site</button>
+            <button class="analogy-tab" onclick="switchAnalogy('orchestra')">The Orchestra</button>
+        </div>
+
+        <!-- RESTAURANT ANALOGY -->
+        <div id="analogy-restaurant" class="analogy-panel active">
+            <div class="analogy-section-card">
+                <h3>Gas Town is a Restaurant Kitchen</h3>
+                <p class="analogy-subtitle">You walk in and place an order. You never step into the kitchen &mdash; you just get your food. Here is what's happening behind the swinging doors.</p>
+
+                <div class="analogy-mapping">
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Head Chef</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Mayor</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Line Cooks</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Polecats</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Order Tickets</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Beads</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">The Rail</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Convoy</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Expediter</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Refinery</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Floor Manager</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Witness</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Kitchen Stations</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Git Worktrees</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">The Finished Plate</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Merged Code</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; padding: 1rem; background: #f8f7fc; border-radius: 8px; border-left: 3px solid #7c3aed;">
+                    <p style="font-size: 0.88rem; color: #4a4358; line-height: 1.7;"><strong style="color: #1c1525;">How it plays out:</strong> You (the customer) tell the <strong>Head Chef</strong> (Mayor) "I want a three-course meal." The chef reads your order and hangs <strong>three tickets</strong> (beads) on the <strong>rail</strong> (convoy). The <strong>grill cook</strong>, <strong>sautee cook</strong>, and <strong>pastry cook</strong> (polecats) each grab a ticket and start working simultaneously at their own <strong>stations</strong> (worktrees). The <strong>floor manager</strong> (Witness) walks the line and notices if anyone is falling behind or burning something. When each dish is done, the <strong>expediter</strong> (Refinery) inspects every plate, makes sure it looks right, and sends it out. You get your full meal &mdash; all three courses cooked in parallel, quality-checked, and delivered together.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSTRUCTION ANALOGY -->
+        <div id="analogy-construction" class="analogy-panel">
+            <div class="analogy-section-card">
+                <h3>Gas Town is a Construction Project</h3>
+                <p class="analogy-subtitle">You want a house built. You hire a general contractor and they handle everything &mdash; hiring subcontractors, scheduling work, and doing final inspections.</p>
+
+                <div class="analogy-mapping">
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">General Contractor</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Mayor</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Subcontractors</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Polecats</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Work Orders</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Beads</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">The Blueprint</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Convoy</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Final Inspection</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Refinery</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Site Inspector</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Witness</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Building Projects</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Rigs</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Finished Building</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Main Branch</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; padding: 1rem; background: #f8f7fc; border-radius: 8px; border-left: 3px solid #7c3aed;">
+                    <p style="font-size: 0.88rem; color: #4a4358; line-height: 1.7;"><strong style="color: #1c1525;">How it plays out:</strong> You tell the <strong>general contractor</strong> (Mayor) "I want a house with 3 bedrooms." The GC draws up <strong>work orders</strong> (beads) and hires an <strong>electrician</strong>, <strong>plumber</strong>, and <strong>framer</strong> (polecats). They all work on different parts of the house at the same time &mdash; each in their own area so they don't step on each other. The <strong>site inspector</strong> (Witness) walks the job daily and flags anyone who hasn't made progress or whose work looks off. When everyone is done, the GC calls in the <strong>final inspection</strong> (Refinery) to make sure the plumbing connects to the right drains, the wiring reaches every outlet, and the framing is square. Only then does the building pass code and become the <strong>finished building</strong> (main branch).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ORCHESTRA ANALOGY -->
+        <div id="analogy-orchestra" class="analogy-panel">
+            <div class="analogy-section-card">
+                <h3>Gas Town is an Orchestra Performance</h3>
+                <p class="analogy-subtitle">You are the patron who commissioned a symphony. The conductor brings the music to life with dozens of musicians playing different parts simultaneously.</p>
+
+                <div class="analogy-mapping">
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Conductor</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Mayor</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Musicians</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Polecats</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Sheet Music</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Beads</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">The Full Score</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Convoy</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Mixing / Mastering</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Refinery</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Stage Manager</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Witness</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">Instrument Sections</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Git Worktrees</span>
+                    </div>
+                    <div class="analogy-mapping-item">
+                        <span class="real-world">The Symphony</span>
+                        <span class="arrow">=</span>
+                        <span class="gt-equiv">Your Finished Software</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; padding: 1rem; background: #f8f7fc; border-radius: 8px; border-left: 3px solid #7c3aed;">
+                    <p style="font-size: 0.88rem; color: #4a4358; line-height: 1.7;"><strong style="color: #1c1525;">How it plays out:</strong> You tell the <strong>conductor</strong> (Mayor) "I want a piece in three movements." The conductor distributes <strong>sheet music</strong> (beads) to the <strong>violin section</strong>, the <strong>brass section</strong>, and the <strong>percussion section</strong> (polecats). Each section rehearses their part independently in their own <strong>practice rooms</strong> (worktrees). The <strong>stage manager</strong> (Witness) listens from the wings &mdash; if the brass is struggling or a musician hasn't played a note, they alert the conductor. When all parts are ready, the <strong>mixing and mastering engineer</strong> (Refinery) blends all the recordings together, checking for clashing harmonies or timing issues. The result is a <strong>finished symphony</strong> &mdash; your completed software where every part works in harmony.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- QUICKSTART GUIDES -->
+<!-- ============================================================ -->
+<section id="quickstart" class="section">
+    <div class="container">
+        <h2>Quickstart Guides &mdash; Copy, Paste, Go</h2>
+        <p class="section-intro">Everything you need to get started with Gas Town, broken into copy-paste-ready blocks. Click the copy button on any code block.</p>
+
+        <!-- Install from scratch -->
+        <div class="quickstart-card">
+            <h3>Installing Gas Town from Scratch</h3>
+            <p class="qs-desc">One-time setup. Takes about 5 minutes.</p>
+            <div class="code-block">
+                <div class="code-label">Install Gas Town and dependencies</div>
+                <div class="copy-wrapper">
+                    <code>brew install gastown
+brew install tmux</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Create your workspace</div>
+                <div class="copy-wrapper">
+                    <code>gt install ~/gt --git</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Start everything up</div>
+                <div class="copy-wrapper">
+                    <code>cd ~/gt
+gt up</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Attach to the Mayor (your AI project manager)</div>
+                <div class="copy-wrapper">
+                    <code>gt mayor attach</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adding a project -->
+        <div class="quickstart-card">
+            <h3>Adding Your First Project (Rig)</h3>
+            <p class="qs-desc">Register any git repository as a Gas Town rig so agents can work on it.</p>
+            <div class="code-block">
+                <div class="code-label">Add a project to Gas Town</div>
+                <div class="copy-wrapper">
+                    <code>cd ~/gt
+gt rig add my-project ~/path/to/your/repo</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Wake it up and start it</div>
+                <div class="copy-wrapper">
+                    <code>gt rig undock my-project
+gt rig start my-project</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Check status</div>
+                <div class="copy-wrapper">
+                    <code>gt status</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Creating and dispatching work -->
+        <div class="quickstart-card">
+            <h3>Creating and Dispatching Work</h3>
+            <p class="qs-desc">Create work items (beads), see what is ready, and send them to workers.</p>
+            <div class="code-block">
+                <div class="code-label">Create a work item</div>
+                <div class="copy-wrapper">
+                    <code>bd create --title="Build login page" --type=task --priority=2</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">See what is ready to work</div>
+                <div class="copy-wrapper">
+                    <code>bd ready</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Dispatch it to a worker</div>
+                <div class="copy-wrapper">
+                    <code>gt sling &lt;bead-id&gt; my-project</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Watch progress</div>
+                <div class="copy-wrapper">
+                    <code>gt convoy list</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common day-to-day commands -->
+        <div class="quickstart-card">
+            <h3>Common Day-to-Day Commands</h3>
+            <p class="qs-desc">The commands you will use most often once Gas Town is running.</p>
+            <div class="code-block">
+                <div class="code-label">Overview and monitoring</div>
+                <div class="copy-wrapper">
+                    <code>gt status              # See everything running
+gt mayor attach        # Talk to the Mayor
+gt mail inbox          # Check messages between agents
+gt convoy list         # See all active work
+gt polecat list        # See all workers</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Work items and projects</div>
+                <div class="copy-wrapper">
+                    <code>bd ready               # Work items ready to go
+bd list --status=open  # All open items
+gt rig list            # All projects</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+            <div class="code-block">
+                <div class="code-label">Health and costs</div>
+                <div class="copy-wrapper">
+                    <code>gt vitals              # Health dashboard
+gt costs               # See Claude API spending
+gt doctor              # Run health checks</code>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- HOW IT ACTUALLY WORKS -->
+<!-- ============================================================ -->
+<section id="how-it-works" class="section section-alt">
+    <div class="container">
+        <h2>How It Actually Works &mdash; A Deep Dive</h2>
+        <p class="section-intro">What really happens behind the scenes when you say "Build me a dashboard" to the Mayor. Every step, from English sentence to merged code.</p>
+
+        <div class="explainer-card">
+            <h3>The Full Lifecycle: From Idea to Merged Code</h3>
+            <div class="flow-timeline">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>You Describe What You Want</h4>
+                        <p>You attach to the Mayor with <code>gt mayor attach</code> and type something like "Build me a dashboard with an overview page, a settings page, and a data table." The Mayor is a Claude Code instance with special Gas Town context &mdash; it knows all the roles, all the commands, and your project's codebase.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>The Mayor Creates a Plan</h4>
+                        <p>The Mayor analyzes your request and breaks it into discrete, parallelizable tasks. It creates <strong>beads</strong> (work items) for each one &mdash; "Build the overview page", "Build the settings page", "Build the data table component." These beads are grouped into a <strong>convoy</strong> (a batch of related work). The plan is stored in Dolt, Gas Town's built-in SQL database, so nothing is lost if a session crashes.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>Polecats Are Spawned</h4>
+                        <p>For each bead, the Mayor spins up a <strong>polecat</strong> &mdash; a fresh Claude Code instance running in its own tmux window with its own <strong>git worktree</strong>. This is key: each polecat works on a separate copy of your codebase, so they never step on each other's files. The polecat's <strong>hook</strong> (persistent state) records exactly which bead it is working on, so if it crashes, it knows where to resume.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>Parallel Coding Begins</h4>
+                        <p>All polecats start coding simultaneously. Polecat 1 builds the overview page while Polecat 2 builds settings and Polecat 3 builds the data table. They read the codebase, write files, run tests, and iterate &mdash; just like a human developer would, but each in their own isolated branch.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">5</div>
+                    <div class="flow-step-content">
+                        <h4>The Witness Monitors Everything</h4>
+                        <p>While the polecats work, the <strong>Witness</strong> (a dedicated monitoring agent for each rig) runs periodic health checks. It looks for stuck agents (no commits in too long), crashed sessions (tmux window gone), or agents that seem to be going in circles. If something is wrong, the Witness notifies the Mayor, who can reassign the work to a new polecat.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">6</div>
+                    <div class="flow-step-content">
+                        <h4>Polecats Submit Merge Requests</h4>
+                        <p>When a polecat finishes its bead, it submits a <strong>merge request</strong> &mdash; pushing its branch and marking the bead as ready for review. The polecat's work is done; it can be assigned new work or shut down.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">7</div>
+                    <div class="flow-step-content">
+                        <h4>The Refinery Merges and Verifies</h4>
+                        <p>The <strong>Refinery</strong> is Gas Town's automated merge queue. It picks up merge requests one at a time, checks for conflicts against the main branch, runs any tests, and attempts the merge. If there's a conflict, the Refinery can either resolve it automatically or create a new bead for a polecat to fix it manually. Only clean, passing code lands on your main branch.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">8</div>
+                    <div class="flow-step-content">
+                        <h4>You Get the Result</h4>
+                        <p>The Mayor notifies you that the convoy is complete. All three pages have been built, reviewed, and merged into your main branch. You pull the latest code and see the finished dashboard. The entire process &mdash; from "build me a dashboard" to merged code &mdash; might have taken 15 minutes instead of the 3 hours it would take one developer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explainer-card">
+            <h3>What Happens When Things Go Wrong</h3>
+            <div class="concept-list">
+                <div class="concept">
+                    <strong>Agent crashes</strong>
+                    <span>The agent's <strong>hook</strong> has all its state. When the Witness detects the crash, it tells the Mayor. The Mayor spawns a fresh polecat that reads the hook and picks up exactly where the previous one left off. No work is lost.</span>
+                </div>
+                <div class="concept">
+                    <strong>Agent gets stuck</strong>
+                    <span>The Witness notices no progress (no new commits, no status updates). It sends a nudge. If the agent still doesn't respond, the Mayor issues a <strong>death warrant</strong> (via <code>gt polecat nuke</code>), kills the stuck agent, and reassigns the bead.</span>
+                </div>
+                <div class="concept">
+                    <strong>Merge conflict</strong>
+                    <span>The Refinery detects the conflict and either auto-resolves it (for simple cases) or creates a new bead specifically for conflict resolution. A polecat picks it up, resolves the conflict in its own worktree, and resubmits.</span>
+                </div>
+                <div class="concept">
+                    <strong>Tests fail</strong>
+                    <span>The Refinery rejects the merge request and creates a bead describing the failure. A polecat is assigned to fix the failing tests before the code can land.</span>
+                </div>
+                <div class="concept">
+                    <strong>Your Mac sleeps</strong>
+                    <span>tmux sessions survive sleep. When your Mac wakes up, all agents resume. The GUPP principle ("if there's work on your hook, you MUST run it") means agents automatically pick up where they left off.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- COMPARISON TABLE -->
+<!-- ============================================================ -->
+<section id="comparison" class="section">
+    <div class="container">
+        <h2>Claude Code Alone vs. Gas Town</h2>
+        <p class="section-intro">Claude Code is powerful on its own. Gas Town turns it into a factory. Here's the difference at a glance.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Claude Code (Solo)</th>
+                    <th>Gas Town</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Simultaneous agents</td>
+                    <td>1</td>
+                    <td class="check">20-30 working in parallel</td>
+                </tr>
+                <tr>
+                    <td>Memory across sessions</td>
+                    <td class="x-mark">Gone when you close the window</td>
+                    <td class="check">Persistent via hooks and Dolt DB</td>
+                </tr>
+                <tr>
+                    <td>Work tracking</td>
+                    <td class="x-mark">None built in</td>
+                    <td class="check">Full issue tracker (beads + convoys)</td>
+                </tr>
+                <tr>
+                    <td>Parallel file editing</td>
+                    <td class="x-mark">One branch at a time</td>
+                    <td class="check">Separate git worktrees per agent</td>
+                </tr>
+                <tr>
+                    <td>Crash recovery</td>
+                    <td class="x-mark">Start over from scratch</td>
+                    <td class="check">Hook-based auto-resume</td>
+                </tr>
+                <tr>
+                    <td>Code merging</td>
+                    <td class="x-mark">Manual git merge</td>
+                    <td class="check">Automated Refinery with conflict detection</td>
+                </tr>
+                <tr>
+                    <td>Health monitoring</td>
+                    <td class="x-mark">None</td>
+                    <td class="check">Witness + Deacon + auto-reassignment</td>
+                </tr>
+                <tr>
+                    <td>Project management</td>
+                    <td class="x-mark">You manage everything</td>
+                    <td class="check">Mayor plans, delegates, and tracks</td>
+                </tr>
+                <tr>
+                    <td>Cost visibility</td>
+                    <td class="x-mark">Check Anthropic dashboard manually</td>
+                    <td class="check"><code>gt costs</code> shows real-time spend</td>
+                </tr>
+                <tr>
+                    <td>Best for</td>
+                    <td>Quick edits, single-file tasks, Q&amp;A</td>
+                    <td>Full features, multi-file projects, parallel work</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- REAL-WORLD USE CASES -->
+<!-- ============================================================ -->
+<section id="use-cases" class="section section-alt">
+    <div class="container">
+        <h2>Real-World Use Cases</h2>
+        <p class="section-intro">Here is how Gas Town handles three common scenarios. In each case, one English sentence turns into parallel work across multiple agents.</p>
+
+        <div class="use-case-card">
+            <div class="uc-scenario">"I need a <em>full-stack web app</em> with authentication, dashboard, and API"</div>
+            <div class="uc-breakdown">
+                <div class="uc-step">
+                    <div class="uc-step-label">Mayor plans</div>
+                    <p>Creates 8 beads: auth system, user model, API endpoints, dashboard layout, data tables, charts, navigation, tests.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">4 polecats work</div>
+                    <p>Polecat 1: auth + user model. Polecat 2: API endpoints. Polecat 3: dashboard + charts. Polecat 4: nav + tests. All at once.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">Refinery merges</div>
+                    <p>Merges each branch as it completes. Resolves an import conflict between auth and API. Ships clean code to main.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="use-case-card">
+            <div class="uc-scenario">"<em>Fix these 15 bugs</em> before the release"</div>
+            <div class="uc-breakdown">
+                <div class="uc-step">
+                    <div class="uc-step-label">Mayor plans</div>
+                    <p>Each bug becomes a bead. Mayor groups them by area (5 frontend, 5 backend, 5 infra) and sequences dependencies.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">15 polecats swarm</div>
+                    <p>Each bug gets its own polecat working in its own worktree. Independent bugs finish in minutes. The Witness flags two that seem stuck.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">All merged in one batch</div>
+                    <p>Refinery processes merge requests as they arrive. 15 bugs fixed and merged in under 30 minutes instead of a full day.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="use-case-card">
+            <div class="uc-scenario">"<em>Refactor the database layer</em> from raw SQL to an ORM"</div>
+            <div class="uc-breakdown">
+                <div class="uc-step">
+                    <div class="uc-step-label">Mayor plans carefully</div>
+                    <p>This has dependencies. Mayor sequences: 1) set up ORM config, 2) migrate models, 3) update queries, 4) update tests. Steps 2-3 can parallelize after step 1.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">Sequenced + parallel</div>
+                    <p>Polecat 1 does the ORM setup. Once done, 3 polecats fan out: one for user models, one for product models, one for order models.</p>
+                </div>
+                <div class="uc-step">
+                    <div class="uc-step-label">Tests validate everything</div>
+                    <p>A final polecat runs the full test suite after all merges. Refinery catches a broken import and creates a fix bead automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ -->
+<!-- ============================================================ -->
+<section id="faq" class="section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <p class="section-intro">Quick answers to the most common questions about Gas Town.</p>
+
+        <div class="faq-item">
+            <h4>Is this expensive?</h4>
+            <p>Each polecat is a Claude Code session, so costs scale with the number of active workers. A single polecat might cost a few dollars per complex task. Running 10 polecats in parallel for an hour could cost $20-50 depending on the work. Use <code>gt costs</code> to monitor spending in real time, and set budget limits with the Mayor. For many teams, the time savings far outweigh the API costs &mdash; what takes one developer a day, Gas Town can do in 30 minutes.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I use this with my existing projects?</h4>
+            <p>Yes. Any git repository can become a Gas Town rig with <code>gt rig add</code>. Gas Town does not modify your repo structure &mdash; it creates worktrees alongside it and manages branches. Your existing code, CI/CD, and deployment stay exactly the same. Gas Town just adds a layer of orchestration on top.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>What if an agent gets stuck?</h4>
+            <p>The Witness detects stuck agents automatically (no commits or updates for too long). It nudges the agent first. If that doesn't help, the Mayor reassigns the bead to a fresh polecat. As a last resort, you can run <code>gt polecat nuke</code> to force-kill a stuck agent. The hook system means all progress is saved &mdash; the replacement polecat picks up where the stuck one left off.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Do I need to know how to code?</h4>
+            <p>For initial setup (installing Homebrew, running terminal commands), some comfort with the terminal is needed. But once Gas Town is running, your day-to-day interaction is just talking to the Mayor in plain English. "Build me a login page", "Fix the spacing on the homepage", "Add dark mode to the settings page." The Mayor handles all the technical details &mdash; creating branches, writing code, merging, and testing.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>How is this different from GitHub Copilot?</h4>
+            <p>Copilot autocompletes code as you type &mdash; it is a writing assistant. Gas Town is a team of autonomous agents that can build entire features without you touching the keyboard. Copilot helps you write one file faster. Gas Town writes 20 files simultaneously across multiple agents, merges them, and runs tests. They serve very different purposes and can be used together.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I review the code before it merges?</h4>
+            <p>Absolutely. You can configure the Refinery to require human approval before merging, or you can review merge requests manually. Many people start with auto-merge to see how it works, then add approval gates for production-critical code. The Mayor can also be told "always ask me before merging" in your initial instructions.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>What happens if my computer shuts down?</h4>
+            <p>tmux sessions survive sleep, so closing the lid is fine. For a full shutdown or restart, run <code>gt down</code> to gracefully stop everything. When you boot back up, <code>gt up</code> restarts all services. Every agent's state is persisted in its hook and in the Dolt database, so no work is lost. The GUPP principle ensures agents automatically resume their assigned work.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>How many projects can Gas Town manage at once?</h4>
+            <p>There is no hard limit on rigs. Each rig gets its own Witness, its own worktrees, and its own pool of polecats. The practical limit is your machine's resources (CPU, RAM, disk) and your Claude API budget. Most users run 1-3 rigs comfortably on a modern Mac.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
 <!-- WHICH TOOL? -->
 <!-- ============================================================ -->
 <section id="which-tool" class="section section-alt">
@@ -827,38 +1442,38 @@ sequenceDiagram
                 </thead>
                 <tbody>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">🎩 Mayor</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Active</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Mayor</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Active</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">tmux session: hq-mayor | Agent: Claude Code</td>
                     </tr>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">📿 Deacon</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Active</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Deacon</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Active</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">tmux session: hq-deacon | Town-level watchdog</td>
                     </tr>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">👁️ Witness</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Active</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Witness</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Active</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">tmux session: po-witness | Monitoring portfolio rig</td>
                     </tr>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">🐕 Boot</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Active</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Boot</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Active</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">tmux session: hq-boot | Daemon watchdog</td>
                     </tr>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">🗄️ Dolt Database</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Running</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Dolt Database</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Running</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">Port 3307 | 1.6 MB disk | 3 connections</td>
                     </tr>
                     <tr style="border-bottom:1px solid #f0edf5;">
-                        <td style="padding:0.5rem 0.75rem;">⚙️ Daemon</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Running</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Daemon</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Running</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">Background process manager for patrols</td>
                     </tr>
                     <tr>
-                        <td style="padding:0.5rem 0.75rem;">📊 Portfolio Server</td>
-                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">● Running</span></td>
+                        <td style="padding:0.5rem 0.75rem;">Portfolio Server</td>
+                        <td style="padding:0.5rem 0.75rem;"><span style="color:#16a34a;font-weight:600;">Running</span></td>
                         <td style="padding:0.5rem 0.75rem;color:#6b6479;">localhost:3001 | Notion API connected</td>
                     </tr>
                 </tbody>
@@ -887,7 +1502,7 @@ sequenceDiagram
                 </div>
                 <div style="background:#f8f7fc;padding:0.6rem 0.8rem;border-radius:6px;">
                     <strong style="font-size:0.82rem;color:#7c3aed;">mol-refinery-patrol</strong>
-                    <p style="font-size:0.78rem;color:#6b6479;margin:0.2rem 0 0;">Merge queue processor — checks code, resolves conflicts, merges</p>
+                    <p style="font-size:0.78rem;color:#6b6479;margin:0.2rem 0 0;">Merge queue processor &mdash; checks code, resolves conflicts, merges</p>
                 </div>
                 <div style="background:#f8f7fc;padding:0.6rem 0.8rem;border-radius:6px;">
                     <strong style="font-size:0.82rem;color:#7c3aed;">mol-digest-generate</strong>
@@ -905,14 +1520,14 @@ sequenceDiagram
         </div>
 
         <div class="explainer-card">
-            <h3>Deep Agents — What Was Done</h3>
+            <h3>Deep Agents &mdash; What Was Done</h3>
             <div style="margin-top:0.75rem;">
                 <p class="status-detail"><strong>1. Installed Python 3.12</strong> via Homebrew</p>
                 <p class="status-detail"><strong>2. Created virtual environment</strong> at ~/deep-agents-env/</p>
                 <p class="status-detail"><strong>3. Installed packages:</strong> deepagents v0.4.12, langchain, langgraph, anthropic SDK, tavily-python</p>
-                <p class="status-detail"><strong>4. Created agent.py</strong> at ~/Desktop/deep-agents/ — pre-configured with your portfolio context</p>
-                <p class="status-detail"><strong>5. Set Anthropic API key</strong> in .env file ✅</p>
-                <p class="status-detail"><strong>6. Verified all imports</strong> — deepagents, langchain, tavily all load correctly</p>
+                <p class="status-detail"><strong>4. Created agent.py</strong> at ~/Desktop/deep-agents/ &mdash; pre-configured with your portfolio context</p>
+                <p class="status-detail"><strong>5. Set Anthropic API key</strong> in .env file</p>
+                <p class="status-detail"><strong>6. Verified all imports</strong> &mdash; deepagents, langchain, tavily all load correctly</p>
                 <p class="status-detail"><strong>7. Agent creates successfully</strong> as a CompiledStateGraph with planning, sub-agents, and file system tools</p>
             </div>
         </div>
@@ -923,7 +1538,7 @@ sequenceDiagram
             <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.5rem;">
                 <div style="background:#f3f0ff;padding:0.5rem;border-radius:6px;text-align:center;border:1px solid #e8e5ef;">
                     <strong style="font-size:0.82rem;color:#7c3aed;">Claude</strong>
-                    <p style="font-size:0.7rem;color:#6b6479;margin:0;">Default ✅</p>
+                    <p style="font-size:0.7rem;color:#6b6479;margin:0;">Default</p>
                 </div>
                 <div style="background:#f8f7fc;padding:0.5rem;border-radius:6px;text-align:center;border:1px solid #e8e5ef;">
                     <strong style="font-size:0.82rem;color:#4a4358;">Codex</strong>
@@ -965,30 +1580,30 @@ sequenceDiagram
         </div>
 
         <div class="diagram-card">
-            <h3>Complete Architecture — Everything Connected</h3>
+            <h3>Complete Architecture &mdash; Everything Connected</h3>
             <pre class="mermaid">
 graph TB
-    subgraph YOUR_MACHINE["🖥️ Your Mac"]
+    subgraph YOUR_MACHINE["Your Mac"]
         direction TB
 
-        subgraph GASTOWN["🏭 Gas Town (~/gt/)"]
+        subgraph GASTOWN["Gas Town ~/gt/"]
             direction LR
-            MAYOR["🎩 Mayor"]
-            DEACON["📿 Deacon"]
-            WITNESS["👁️ Witness"]
-            DOLT["🗄️ Dolt DB<br>port 3307"]
-            DAEMON["⚙️ Daemon"]
-            TMUX["📺 tmux<br>4 sessions"]
+            MAYOR["Mayor"]
+            DEACON["Deacon"]
+            WITNESS["Witness"]
+            DOLT["Dolt DB port 3307"]
+            DAEMON["Daemon"]
+            TMUX["tmux 4 sessions"]
         end
 
-        subgraph DEEPAGENTS["🧠 Deep Agents (~/Desktop/deep-agents/)"]
-            DAGENT["Python Agent<br>deepagents v0.4.12"]
-            PLANNING["📋 Planner"]
-            SUBAGENTS["👤 Sub-Agents"]
-            FILESYSTEM["📁 File System"]
+        subgraph DEEPAGENTS["Deep Agents ~/Desktop/deep-agents/"]
+            DAGENT["Python Agent deepagents v0.4.12"]
+            PLANNING["Planner"]
+            SUBAGENTS["Sub-Agents"]
+            FILESYSTEM["File System"]
         end
 
-        subgraph PORTFOLIO["📊 Portfolio (localhost:3001)"]
+        subgraph PORTFOLIO["Portfolio localhost:3001"]
             NODESERVER["Node.js Server"]
             OVERVIEW["Overview"]
             PORTPAGE["Portfolio + Ask AI"]
@@ -996,15 +1611,15 @@ graph TB
             INTEL["Intelligence"]
         end
 
-        CLAUDE["💬 Claude Code<br>Your Terminal"]
+        CLAUDE["Claude Code Your Terminal"]
     end
 
-    subgraph EXTERNAL["☁️ External Services"]
-        NOTION["📝 Notion"]
-        GMAIL["📧 Gmail"]
-        SLACK["💬 Slack"]
-        ANTHROPIC["🤖 Anthropic API"]
-        WEB["🌐 Web Search"]
+    subgraph EXTERNAL["External Services"]
+        NOTION["Notion"]
+        GMAIL["Gmail"]
+        SLACK["Slack"]
+        ANTHROPIC["Anthropic API"]
+        WEB["Web Search"]
     end
 
     CLAUDE --> GASTOWN
@@ -1033,7 +1648,13 @@ graph TB
     <p>Built with Claude Code. All systems operational. Last updated: March 25, 2026.</p>
 </footer>
 
+<!-- Back to top button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    &#x2191;
+</button>
+
 <script>
+    // Mermaid init
     mermaid.initialize({
         startOnLoad: true,
         theme: 'base',
@@ -1046,6 +1667,43 @@ graph TB
             tertiaryColor: '#ecfdf5',
             fontFamily: 'Inter, system-ui, sans-serif',
             fontSize: '13px',
+        }
+    });
+
+    // Analogy tab switcher
+    function switchAnalogy(id) {
+        document.querySelectorAll('.analogy-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('.analogy-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.getElementById('analogy-' + id).classList.add('active');
+        // Find the button that matches
+        document.querySelectorAll('.analogy-tab').forEach(function(t) {
+            if (t.getAttribute('onclick').indexOf(id) !== -1) {
+                t.classList.add('active');
+            }
+        });
+    }
+
+    // Copy to clipboard
+    function copyCode(btn) {
+        var codeEl = btn.parentElement.querySelector('code');
+        var text = codeEl.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Back to top visibility
+    var backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 600) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
         }
     });
 </script>
